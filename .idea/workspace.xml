@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e82b7b7-ce19-4d82-a2ba-1b41e0cb31be" name="Changes" comment="sum">
+    <list default="true" id="0e82b7b7-ce19-4d82-a2ba-1b41e0cb31be" name="Changes" comment="calendar.java modify">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,13 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674893502566</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="calendar.java modify">
+      <created>1674894115372</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674894115372</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="main delete" />
     <MESSAGE value="28th calendar" />
     <MESSAGE value="sum" />
-    <option name="LAST_COMMIT_MESSAGE" value="sum" />
+    <MESSAGE value="calendar.java modify" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar.java modify" />
   </component>
 </project>

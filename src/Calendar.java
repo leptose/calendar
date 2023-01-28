@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Calendar {
+    private static final int[] MAX_DAYS={31,28,31,30,31,30,31,31,30,31,30,31};
     public static void main(String[] args){
 //        System.out.println("일  월 화  수 목  금 토");
 //        System.out.println("---------------------");
@@ -22,7 +23,8 @@ public class Calendar {
 //      31 28 31 30 31 30 31 31 30 31 30 31
         Scanner scanner=new Scanner(System.in);
         int month=scanner.nextInt();
-        int[] monthDay={31,28,31,30,31,30,31,31,30,31,30,31};
+        Calendar calendar=new Calendar();
+        System.out.println(month+"월은 "+calendar.maxDays(month)+"까지 있습니다.");
 //        if(month%2==0){
 //            if(month==2){
 //                System.out.println(month+"월은 28일까지 있습니다.");
@@ -42,6 +44,10 @@ public class Calendar {
 //                System.out.println(month+"월은 30일까지 있습니다.");
 //            }
 //        }
-        System.out.println(month+"월은 "+monthDay[month-1]+"까지 있습니다.");
+
+    }
+
+    private int maxDays(int month) {
+        return MAX_DAYS[month-1];
     }
 }
