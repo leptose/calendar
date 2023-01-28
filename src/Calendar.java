@@ -24,7 +24,8 @@ public class Calendar {
         Scanner scanner=new Scanner(System.in);
         int month=scanner.nextInt();
         Calendar calendar=new Calendar();
-        System.out.println(month+"월은 "+calendar.maxDays(month)+"까지 있습니다.");
+        System.out.println(month+"월은 "+calendar.getMaxDays(month)+"까지 있습니다.");
+        scanner.close();
 //        if(month%2==0){
 //            if(month==2){
 //                System.out.println(month+"월은 28일까지 있습니다.");
@@ -47,7 +48,7 @@ public class Calendar {
 
     }
 
-    private int maxDays(int month) {
+    public int getMaxDays(int month) {
         return MAX_DAYS[month-1];
     }
 }
