@@ -27,7 +27,7 @@ public class Calendar {
         int count=scanner.nextInt();
 
         List<Integer> month=new ArrayList<>();
-        while (count-->0){
+        for(int i=0;i<count;i++){
             int mon=scanner.nextInt();
             month.add(mon);
         }
