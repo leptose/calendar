@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calendar {
@@ -22,9 +24,19 @@ public class Calendar {
 //       1  2  3  4  5  6  7  8  9 10 11 12
 //      31 28 31 30 31 30 31 31 30 31 30 31
         Scanner scanner=new Scanner(System.in);
-        int month=scanner.nextInt();
+        int count=scanner.nextInt();
+
+        List<Integer> month=new ArrayList<>();
+        while (count-->0){
+            int mon=scanner.nextInt();
+            month.add(mon);
+        }
+
         Calendar calendar=new Calendar();
-        System.out.println(month+"월은 "+calendar.getMaxDays(month)+"까지 있습니다.");
+
+        for(int i:month){
+            System.out.println(i + "월은 " + calendar.getMaxDays(i) + "까지 있습니다.");
+        }
         scanner.close();
 //        if(month%2==0){
 //            if(month==2){
