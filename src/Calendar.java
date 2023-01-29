@@ -3,11 +3,12 @@ import java.util.Scanner;
 public class Calendar {
     private static final int[] MAX_DAYS={31,28,31,30,31,30,31,31,30,31,30,31};
     private static final int[] LEAP_MAX_DAYS={31,29,31,30,31,30,31,31,30,31,30,31};
+    private static final String[] WEEKDAY = {"일", "월", "화", "수", "목", "금", "토"};
     public static void main(String[] args){
         Scanner scanner=new Scanner(System.in);
         int month;
         int year;
-        String whatDay;
+        String weekDay;
         Calendar calendar=new Calendar();
         while(true){
             System.out.println("년을 입력하세요.");
@@ -18,7 +19,7 @@ public class Calendar {
             month=scanner.nextInt();
             System.out.println("요일을 입력하세요.");
             System.out.print("> ");
-            whatDay=scanner.next();
+            weekDay=scanner.next();
 
             if(month==-1){
                 break;
@@ -26,7 +27,7 @@ public class Calendar {
             else if(month>12){
                 continue;
             }
-            calendar.normalCalendar(year,month,whatDay);
+            calendar.normalCalendar(year,month,weekDay);
 
         }
 //        System.out.println("일  월 화  수 목  금 토");
@@ -133,10 +134,9 @@ public class Calendar {
     }
 
     public int startDay(String whatDay){
-        String[] yoil={"일","월","화","수","목","금","토"};
         int result=-1;
-        for(int i=0;i<yoil.length;i++){
-            if(whatDay.equals(yoil[i])){
+        for(int i = 0; i< WEEKDAY.length; i++){
+            if(whatDay.equals(WEEKDAY[i])){
                 result=i;
             }
         }
