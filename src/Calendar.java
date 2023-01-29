@@ -132,14 +132,10 @@ public class Calendar {
 
     public int startDay(int year,int month){
         //1995.1.1 sun
-        int standardDay=leapYearCheck(year);
+        int standardDay= leapYearCheck(year);
         for(int i=1;i<month;i++){
-            if(i==2&&isLeapYear(year)){
-                standardDay+=LEAP_MAX_DAYS[1];
-            }
-            else{
-                standardDay+=MAX_DAYS[i-1];
-            }
+            standardDay+=getMaxDays(year,i);
+
         }
         return standardDay%7;
     }
