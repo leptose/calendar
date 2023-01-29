@@ -172,7 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674968126850</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="calendar.java modify">
+      <created>1674968977078</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674968977078</updated>
+    </task>
+    <task id="LOCAL-00016" summary="calendar.java modify">
+      <created>1674968988843</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1674968988843</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
