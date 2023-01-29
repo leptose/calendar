@@ -12,6 +12,9 @@ public class Calendar {
             System.out.println("년을 입력하세요.");
             System.out.print("> ");
             year=scanner.nextInt();
+            if(year==-1){
+                break;
+            }
             System.out.println("월을 입력하세요.");
             System.out.print("> ");
             month=scanner.nextInt();
