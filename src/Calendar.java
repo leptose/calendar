@@ -3,12 +3,10 @@ import java.util.Scanner;
 public class Calendar {
     private static final int[] MAX_DAYS={31,28,31,30,31,30,31,31,30,31,30,31};
     private static final int[] LEAP_MAX_DAYS={31,29,31,30,31,30,31,31,30,31,30,31};
-    private static final String[] WEEKDAY = {"일", "월", "화", "수", "목", "금", "토"};
     public static void main(String[] args){
         Scanner scanner=new Scanner(System.in);
         int month;
         int year;
-        String weekDay;
         Calendar calendar=new Calendar();
         while(true){
             System.out.println("년을 입력하세요.");
@@ -17,17 +15,13 @@ public class Calendar {
             System.out.println("월을 입력하세요.");
             System.out.print("> ");
             month=scanner.nextInt();
-            System.out.println("요일을 입력하세요.");
-            System.out.print("> ");
-            weekDay=scanner.next();
-
             if(month==-1){
                 break;
             }
             else if(month>12){
                 continue;
             }
-            calendar.normalCalendar(year,month,weekDay);
+            calendar.normalCalendar(year,month);
 
         }
 //        System.out.println("일  월 화  수 목  금 토");
@@ -95,9 +89,9 @@ public class Calendar {
         }
     }
 
-    public void normalCalendar(int year,int month,String whatDay){
+    public void normalCalendar(int year,int month){
         int maxDay=getMaxDays(year,month);
-        int startDay=startDay(whatDay);
+        int startDay=startDay(year,month);
         if(startDay==-1){
             return;
         }
@@ -128,21 +122,44 @@ public class Calendar {
                 System.out.println();
             }
         }
-        if(month!=2||maxDay==29) {
-            System.out.println();
-        }
+
+        System.out.println();
+
     }
 
-    public int startDay(String whatDay){
-        int result=-1;
-        for(int i = 0; i< WEEKDAY.length; i++){
-            if(whatDay.equals(WEEKDAY[i])){
-                result=i;
+    public int startDay(int year,int month){
+        //1995.1.1 sun
+        int standardDay=leapYearCheck(year);
+        for(int i=1;i<month;i++){
+            if(i==2&&isLeapYear(year)){
+                standardDay+=LEAP_MAX_DAYS[1];
+            }
+            else{
+                standardDay+=MAX_DAYS[i-1];
             }
         }
-        return result;
+        return standardDay%7;
     }
-
+    public int leapYearCheck(int year){
+        //1995.1.1 sun
+        int diffYear=year-1995;
+        int startYear,lastYear,leapYear=0;
+        if(diffYear<0){
+            startYear=year;
+            lastYear=1995;
+        }
+        else{
+            startYear=1995;
+            lastYear=year;
+        }
+        for(int i=startYear;i<lastYear;i++){
+            if(i%4==0&&(i%100!=0||i%400==0)){
+                leapYear++;
+            }
+        }
+        leapYear+=Math.abs(diffYear);
+        return (diffYear>=0? leapYear%7:(7-(leapYear%7))%7);
+    }
     public boolean isLeapYear(int year){
         return year%4==0&&(year%100!=0||year%400==0);
     }
