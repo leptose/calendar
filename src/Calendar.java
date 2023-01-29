@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Calendar {
@@ -9,19 +7,26 @@ public class Calendar {
         Scanner scanner=new Scanner(System.in);
         int month;
         int year;
+        String whatDay;
         Calendar calendar=new Calendar();
         while(true){
-            System.out.println("월을 입력하세요.");
+            System.out.println("년을 입력하세요.");
             System.out.print("> ");
             year=scanner.nextInt();
+            System.out.println("월을 입력하세요.");
+            System.out.print("> ");
             month=scanner.nextInt();
+            System.out.println("요일을 입력하세요.");
+            System.out.print("> ");
+            whatDay=scanner.next();
+
             if(month==-1){
                 break;
             }
             else if(month>12){
                 continue;
             }
-            calendar.normalCalendar(year,month);
+            calendar.normalCalendar(year,month,whatDay);
 
         }
 //        System.out.println("일  월 화  수 목  금 토");
@@ -89,30 +94,53 @@ public class Calendar {
         }
     }
 
-    public void normalCalendar(int year,int month){
+    public void normalCalendar(int year,int month,String whatDay){
+        int maxDay=getMaxDays(year,month);
+        int startDay=startDay(whatDay);
+        if(startDay==-1){
+            return;
+        }
         System.out.println("일  월 화  수 목  금 토");
         System.out.println("---------------------");
-        int maxDay=getMaxDays(year,month);
+        for(int i=0;i<startDay;i++){
+            if(i!=startDay-1) {
+                System.out.print("   ");
+            }
+            else{
+                System.out.print("  ");
+            }
+        }
         for(int i=1;i<=maxDay;i++){
             if(i<10){
-                if((i-1)%7==0){
+                if((i-1+startDay)%7==0){
                     System.out.print(" ");
                 }
                 else {
                     System.out.print("  ");
                 }
             }
-            else if((i-1)%7!=0){
+            else if((i-1+startDay)%7!=0){
                 System.out.print(" ");
             }
             System.out.print(i);
-            if(i%7==0){
+            if((i+startDay)%7==0) {
                 System.out.println();
             }
         }
         if(month!=2||maxDay==29) {
             System.out.println();
         }
+    }
+
+    public int startDay(String whatDay){
+        String[] yoil={"일","월","화","수","목","금","토"};
+        int result=-1;
+        for(int i=0;i<yoil.length;i++){
+            if(whatDay.equals(yoil[i])){
+                result=i;
+            }
+        }
+        return result;
     }
 
     public boolean isLeapYear(int year){
