@@ -135,7 +135,6 @@ public class Calendar {
         int standardDay= leapYearCheck(year);
         for(int i=1;i<month;i++){
             standardDay+=getMaxDays(year,i);
-
         }
         return standardDay%7;
     }
